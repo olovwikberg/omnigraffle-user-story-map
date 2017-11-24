@@ -9,8 +9,8 @@ var _ = function(){
 		function widthOf(shape)
 		{
 			// find upper left
-			maxX = -100000.0;
-			minX = 100000.0;
+			maxX = -1000000.0;
+			minX = 1000000.0;
 
 			for(var i = 0; i < shape.shapeVertices.length; i++)
 			{
@@ -31,8 +31,8 @@ var _ = function(){
 		function heightOf(shape)
 		{
 			// find upper left
-			maxY = -100000.0;
-			minY = 100000.0;
+			maxY = -1000000.0;
+			minY = 1000000.0;
 
 			for(var i = 0; i < shape.shapeVertices.length; i++)
 			{
@@ -53,8 +53,8 @@ var _ = function(){
 		function subtractTo00(shape)
 		{
 			// find upper left
-			lowestX = 100000.0;
-			lowestY = 100000.0;
+			lowestX = 1000000.0;
+			lowestY = 1000000.0;
 
 			for(var i = 0; i < shape.shapeVertices.length; i++)
 			{
