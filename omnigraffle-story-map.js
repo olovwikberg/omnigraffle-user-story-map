@@ -7,22 +7,15 @@ function subtractTo00(shape)
 	for(var i = 0; i < shape.shapeVertices.length; i++)
 	{
 		point = shape.shapeVertices[i];
-		// console.log("point.x="+point.x);
-		// console.log("point.y="+point.y);
 		lowestX = Math.min(point.x, lowestX);
 		lowestY = Math.min(point.y, lowestY);
 	}
 	for(var i = 0; i < shape.shapeControlPoints.length; i++)
 	{
 		point = shape.shapeControlPoints[i];
-		// console.log("point.x="+point.x);
-		// console.log("point.y="+point.y);
 		lowestX = Math.min(point.x, lowestX);
 		lowestY = Math.min(point.y, lowestY);
 	}
-
-	console.log("lowestX="+lowestX);
-	console.log("lowestY="+lowestY);
 
 	lowestPoint = new Point(lowestX, lowestY);
 
@@ -100,24 +93,20 @@ for (var i = 0; i < activities.length; i++){
 	}
 }
 
-console.log(".............");
-
 for (var i = 0; i < activities.length; i++){
 	activity = activities[i];
-	console.log("activity=" + activity.x + "," + activity.y)
+	// console.log("activity=" + activity.x + "," + activity.y)
 	for (var j = 0; j < activity.children.length; j++)
 	{
 		epic = activity.children[j];
-		console.log("epic=" + epic.x + "," + epic.y)
+		// console.log("epic=" + epic.x + "," + epic.y)
 		for (var k = 0; k < epic.children.length; k++)
 		{
 			story = epic.children[k];
-			console.log("story=" + story.x + "," + story.y)
+			// console.log("story=" + story.x + "," + story.y)
 		}
 	}
 }
-
-console.log(".............");
 
 for (var i = 0; i < activities.length; i++){
 	activity = activities[i];
@@ -133,6 +122,3 @@ for (var i = 0; i < activities.length; i++){
 		}
 	}
 }
-
-console.log(".............");
-
