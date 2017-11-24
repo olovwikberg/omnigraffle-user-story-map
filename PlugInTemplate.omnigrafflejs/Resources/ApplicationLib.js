@@ -39,15 +39,15 @@ var _ = function() {
 	
 	// returns a list of functions
 	ApplicationLib.handlers = function(){
-		return "\n// ApplicationLib ©2017 The PlugIn Author\n• isBeforeCurVers(versStrToCheck)\n• isEqualToCurVers(versStrToCheck)\n• isAtLeastCurVers(versStrToCheck)\n• isAfterCurVers(versStrToCheck)"
+		return "\n// ApplicationLib ©2017 Olov Wikberg\n• isBeforeCurVers(versStrToCheck)\n• isEqualToCurVers(versStrToCheck)\n• isAtLeastCurVers(versStrToCheck)\n• isAfterCurVers(versStrToCheck)"
 	}
 		
 	// returns contents of matching strings file
 	ApplicationLib.documentation = function(){
 		// create a version object
-		var aVersion = new Version("1.0")
+		var aVersion = new Version("1.1")
 		// look up the plugin
-		var plugin = PlugIn.find("com.PlugInAuthorID.OmniGraffle",aVersion)
+		var plugin = PlugIn.find("com.olovwikberg.OmniGraffle",aVersion)
 		// get the url for the text file inside this plugin
 		var url = plugin.resourceNamed("ApplicationLib.strings")
 		// read the file

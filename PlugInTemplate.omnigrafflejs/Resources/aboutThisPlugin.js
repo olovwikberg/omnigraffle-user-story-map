@@ -18,9 +18,9 @@ var _ = function(){
 			libraryNamesString = "This plugin has no libraries."
 		}
 		alertTitle = pluginName + ' v.' + versNum
-		descriptionString = "A plugin demonstrating the use of Omni Automation to automate OmniGraffle in macOS and iOS."
+		descriptionString = "Orders graphics in a canvas hierarchically like in a user story map. May be used to create user story maps from OmniOutliner files.\n\nAlso gives nice Post-it® colors :)"
 		companyURL = 'https://yourwebsiteurl.com'
-		alertMessage = "©2017 The PlugIn Author" + '\n'
+		alertMessage = "©2017 Olov Wikberg" + '\n'
 		alertMessage = alertMessage + pluginID + '\n'
 		alertMessage = alertMessage + companyURL + '\n' + '\n'
 		alertMessage = alertMessage + descriptionString + '\n' + '\n' 

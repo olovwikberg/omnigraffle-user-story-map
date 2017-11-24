@@ -1,1 +1,22 @@
-{"author":"The Plugin Author","libraries":[{"identifier":"ApplicationLib"}],"identifier":"com.PlugInAuthorID.OmniGraffle","version":"1.0","description":"A collection of Omni Automation scripts for OmniGraffle.","actions":[{"image":"icon.png","identifier":"aboutThisPlugin"},{"image":"icon.png","identifier":"changeColorOfSelectedGraphics"}],"defaultLocale":"en"}
+{
+    "actions": [
+        {
+            "identifier": "aboutThisPlugin",
+            "image": "icon.png"
+        },
+        {
+            "identifier": "changeColorOfSelectedGraphics",
+            "image": "icon.png"
+        }
+    ],
+    "author": "Olov Wikberg",
+    "defaultLocale": "en",
+    "description": "Orders graphics in a canvas hierarchically like in a user story map. Also gives nice Post-it® colors.",
+    "identifier": "com.olovwikberg.OmniGraffle",
+    "libraries": [
+        {
+            "identifier": "ApplicationLib"
+        }
+    ],
+    "version": "1.1"
+}
