@@ -145,19 +145,16 @@ for (var i = 0; i < activities.length; i++){
 	activity = activities[i];
 	activity.graphic.fillColor = activityColor;
 	activity.graphic.fillType = FillType.Solid;
-	// console.log("activity=" + activity.col + "," + activity.row)
 	for (var j = 0; j < activity.children.length; j++)
 	{
 		epic = activity.children[j];
 		epic.graphic.fillColor = epicColor;
 		epic.graphic.fillType = FillType.Solid;
-		// console.log("epic=" + epic.col + "," + epic.row)
 		for (var k = 0; k < epic.children.length; k++)
 		{
 			story = epic.children[k];
 			story.graphic.fillColor = storyColor;
 			story.graphic.fillType = FillType.Solid;
-			// console.log("story=" + story.col + "," + story.row)
 		}
 	}
 }
