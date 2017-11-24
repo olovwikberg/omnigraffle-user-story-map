@@ -1,0 +1,1 @@
+{"author":"The Plugin Author","libraries":[{"identifier":"ApplicationLib"}],"identifier":"com.PlugInAuthorID.OmniGraffle","version":"1.0","description":"A collection of Omni Automation scripts for OmniGraffle.","actions":[{"image":"icon.png","identifier":"aboutThisPlugin"},{"image":"icon.png","identifier":"changeColorOfSelectedGraphics"}],"defaultLocale":"en"}
