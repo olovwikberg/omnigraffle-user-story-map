@@ -1,3 +1,52 @@
+margin = 0.3;
+activityColor = Color.RGB(0.93, 0.71, 0.26);
+epicColor     = Color.RGB(0.83, 0.92, 0.94);
+storyColor    = Color.RGB(0.92, 0.91, 0.55);
+
+function widthOf(shape)
+{
+	// find upper left
+	maxX = -100000.0;
+	minX = 100000.0;
+
+	for(var i = 0; i < shape.shapeVertices.length; i++)
+	{
+		point = shape.shapeVertices[i];
+		maxX = Math.max(point.x, maxX);
+		minX = Math.min(point.x, minX);
+	}
+	for(var i = 0; i < shape.shapeControlPoints.length; i++)
+	{
+		point = shape.shapeControlPoints[i];
+		maxX = Math.max(point.x, maxX);
+		minX = Math.min(point.x, minX);
+	}
+
+	return maxX - minX;
+}
+
+function heightOf(shape)
+{
+	// find upper left
+	maxY = -100000.0;
+	minY = 100000.0;
+
+	for(var i = 0; i < shape.shapeVertices.length; i++)
+	{
+		point = shape.shapeVertices[i];
+		maxY = Math.max(point.y, maxY);
+		minY = Math.min(point.y, minY);
+	}
+	for(var i = 0; i < shape.shapeControlPoints.length; i++)
+	{
+		point = shape.shapeControlPoints[i];
+		maxY = Math.max(point.y, maxY);
+		minY = Math.min(point.y, minY);
+	}
+
+	return maxY - minY;
+}
+
 function subtractTo00(shape)
 {
 	// find upper left
@@ -62,32 +111,31 @@ function addTo(shape, newX, newY)
 	shape.shapeControlPoints = newShapeControlPoints;
 }
 
-function moveShapeTo(shape, newX, newY)
+function moveShapeTo(shape, col, row, shapeWidth, shapeHeight, margin)
 {
 	subtractTo00(shape);
-	addTo(shape, newX, newY);
+	addTo(shape, 
+		col * shapeWidth * (1 + margin), 
+		row * shapeHeight * (1 + margin));
 }
-
-shapeWidth = 200;
-shapeHeight = 100;
 
 activities = document.windows[0].selection.canvas.outlineRoot.children;
 
 columnCount = 0;
 for (var i = 0; i < activities.length; i++){
 	activity = activities[i];
-	activity.col = columnCount * shapeWidth * 1.4;
-	activity.row = 0 * shapeHeight * 1.4;
+	activity.col = columnCount;
+	activity.row = 0;
 	for (var j = 0; j < activity.children.length; j++)
 	{
 		epic = activity.children[j];
-		epic.col = columnCount * shapeWidth * 1.4;
-		epic.row = 1 * shapeHeight * 1.4;
+		epic.col = columnCount;
+		epic.row = 1;
 		for (var k = 0; k < epic.children.length; k++)
 		{
 			story = epic.children[k];
-			story.col = columnCount * shapeWidth * 1.4;
-			story.row = (2 + k) * shapeHeight * 1.4;
+			story.col = columnCount;
+			story.row = 2 + k;
 		}
 		columnCount++;
 	}
@@ -95,30 +143,60 @@ for (var i = 0; i < activities.length; i++){
 
 for (var i = 0; i < activities.length; i++){
 	activity = activities[i];
-	console.log("activity=" + activity.col + "," + activity.row)
+	activity.graphic.fillColor = activityColor;
+	activity.graphic.fillType = FillType.Solid;
+	// console.log("activity=" + activity.col + "," + activity.row)
 	for (var j = 0; j < activity.children.length; j++)
 	{
 		epic = activity.children[j];
-		console.log("epic=" + epic.col + "," + epic.row)
+		epic.graphic.fillColor = epicColor;
+		epic.graphic.fillType = FillType.Solid;
+		// console.log("epic=" + epic.col + "," + epic.row)
 		for (var k = 0; k < epic.children.length; k++)
 		{
 			story = epic.children[k];
-			console.log("story=" + story.col + "," + story.row)
+			story.graphic.fillColor = storyColor;
+			story.graphic.fillType = FillType.Solid;
+			// console.log("story=" + story.col + "," + story.row)
 		}
 	}
 }
 
+maxWidth  = 0;
+maxHeight = 0;
+
 for (var i = 0; i < activities.length; i++){
 	activity = activities[i];
-	moveShapeTo(activity.graphic, activity.col, activity.row);
+	maxWidth  = Math.max(widthOf (activity.graphic), maxWidth );
+	maxHeight = Math.max(heightOf(activity.graphic), maxHeight);
 	for (var j = 0; j < activity.children.length; j++)
 	{
 		epic = activity.children[j];
-		moveShapeTo(epic.graphic, epic.col, epic.row);
+		maxWidth  = Math.max(widthOf (epic.graphic), maxWidth );
+		maxHeight = Math.max(heightOf(epic.graphic), maxHeight);
 		for (var k = 0; k < epic.children.length; k++)
 		{
 			story = epic.children[k];
-			moveShapeTo(story.graphic, story.col, story.row);
+			maxWidth  = Math.max(widthOf (story.graphic), maxWidth );
+			maxHeight = Math.max(heightOf(story.graphic), maxHeight);
+		}
+	}
+}
+
+shapeWidth  = maxWidth;
+shapeHeight = maxHeight;
+
+for (var i = 0; i < activities.length; i++){
+	activity = activities[i];
+	moveShapeTo(activity.graphic, activity.col, activity.row, shapeWidth, shapeHeight, margin);
+	for (var j = 0; j < activity.children.length; j++)
+	{
+		epic = activity.children[j];
+		moveShapeTo(epic.graphic, epic.col, epic.row, shapeWidth, shapeHeight, margin);
+		for (var k = 0; k < epic.children.length; k++)
+		{
+			story = epic.children[k];
+			moveShapeTo(story.graphic, story.col, story.row, shapeWidth, shapeHeight, margin);
 		}
 	}
 }
