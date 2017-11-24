@@ -76,18 +76,18 @@ activities = document.windows[0].selection.canvas.outlineRoot.children;
 columnCount = 0;
 for (var i = 0; i < activities.length; i++){
 	activity = activities[i];
-	activity.x = columnCount * shapeWidth * 1.4;
-	activity.y = 0 * shapeHeight * 1.4;
+	activity.col = columnCount * shapeWidth * 1.4;
+	activity.row = 0 * shapeHeight * 1.4;
 	for (var j = 0; j < activity.children.length; j++)
 	{
 		epic = activity.children[j];
-		epic.x = columnCount * shapeWidth * 1.4;
-		epic.y = 1 * shapeHeight * 1.4;
+		epic.col = columnCount * shapeWidth * 1.4;
+		epic.row = 1 * shapeHeight * 1.4;
 		for (var k = 0; k < epic.children.length; k++)
 		{
 			story = epic.children[k];
-			story.x = columnCount * shapeWidth * 1.4;
-			story.y = (2 + k) * shapeHeight * 1.4;
+			story.col = columnCount * shapeWidth * 1.4;
+			story.row = (2 + k) * shapeHeight * 1.4;
 		}
 		columnCount++;
 	}
@@ -95,30 +95,30 @@ for (var i = 0; i < activities.length; i++){
 
 for (var i = 0; i < activities.length; i++){
 	activity = activities[i];
-	// console.log("activity=" + activity.x + "," + activity.y)
+	console.log("activity=" + activity.col + "," + activity.row)
 	for (var j = 0; j < activity.children.length; j++)
 	{
 		epic = activity.children[j];
-		// console.log("epic=" + epic.x + "," + epic.y)
+		console.log("epic=" + epic.col + "," + epic.row)
 		for (var k = 0; k < epic.children.length; k++)
 		{
 			story = epic.children[k];
-			// console.log("story=" + story.x + "," + story.y)
+			console.log("story=" + story.col + "," + story.row)
 		}
 	}
 }
 
 for (var i = 0; i < activities.length; i++){
 	activity = activities[i];
-	moveShapeTo(activity.graphic, activity.x, activity.y);
+	moveShapeTo(activity.graphic, activity.col, activity.row);
 	for (var j = 0; j < activity.children.length; j++)
 	{
 		epic = activity.children[j];
-		moveShapeTo(epic.graphic, epic.x, epic.y);
+		moveShapeTo(epic.graphic, epic.col, epic.row);
 		for (var k = 0; k < epic.children.length; k++)
 		{
 			story = epic.children[k];
-			moveShapeTo(story.graphic, story.x, story.y);
+			moveShapeTo(story.graphic, story.col, story.row);
 		}
 	}
 }
