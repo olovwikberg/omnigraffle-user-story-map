@@ -19,7 +19,7 @@ var _ = function(){
 		}
 		alertTitle = pluginName + ' v.' + versNum
 		descriptionString = "Orders graphics in a canvas hierarchically like in a user story map. May be used to create user story maps from OmniOutliner files.\n\nAlso gives nice Post-it® colors :)"
-		companyURL = 'https://yourwebsiteurl.com'
+		companyURL = 'https://github.com/olovwikberg/omnigraffle-user-story-map'
 		alertMessage = "©2017 Olov Wikberg" + '\n'
 		alertMessage = alertMessage + pluginID + '\n'
 		alertMessage = alertMessage + companyURL + '\n' + '\n'
