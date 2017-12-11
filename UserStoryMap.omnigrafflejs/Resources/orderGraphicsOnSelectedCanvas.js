@@ -132,17 +132,24 @@ var _ = function(){
 			activity = activities[i];
 			activity.col = columnCount;
 			activity.row = 0;
-			for (var j = 0; j < activity.children.length; j++)
+			if(activity.children.length>0)
 			{
-				epic = activity.children[j];
-				epic.col = columnCount;
-				epic.row = 1;
-				for (var k = 0; k < epic.children.length; k++)
+				for (var j = 0; j < activity.children.length; j++)
 				{
-					story = epic.children[k];
-					story.col = columnCount;
-					story.row = 2 + k;
+					epic = activity.children[j];
+					epic.col = columnCount;
+					epic.row = 1;
+					for (var k = 0; k < epic.children.length; k++)
+					{
+						story = epic.children[k];
+						story.col = columnCount;
+						story.row = 2 + k;
+					}
+					columnCount++;
 				}
+			}
+			else
+			{
 				columnCount++;
 			}
 		}
