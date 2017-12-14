@@ -7,6 +7,10 @@
         {
             "identifier": "orderGraphicsOnSelectedCanvas",
             "image": "icon.png"
+        },
+        {
+            "identifier": "importOutlineToSelectedCanvas",
+            "image": "icon.png"
         }
     ],
     "author": "Olov Wikberg",
