@@ -73,15 +73,11 @@ var _ = function(){
 
 		var alert = new Alert("Import OmniOutliner as Story Map", "This script will import the topics from the current OmniOutliner document to OmniGraffle as canvas slides.\n\nShould the script continue?")
 		alert.addOption("Import on current canvas")
-		// alert.addOption("Import in new document")
 		alert.addOption("Stop")
 		alert.show(function(result){
 			if (result == 1/*2*/){
 				throw new Error('script cancelled')
 			} else {
-				// var scriptURL = URL.tellScript("omnigraffle", createStoryMap.toString() + '\n' + 'createStoryMap()')
-				// scriptURL.call(function(reply){})
-
 				var scriptURL = URL.tellScript("omnioutliner", createStoryMap.toString() + '\n' + 'createStoryMap()')
 				scriptURL.call(function(reply){
 					// if (result == 1){
